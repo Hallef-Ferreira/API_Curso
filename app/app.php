@@ -1,31 +1,29 @@
 <?php
 
-define('API_BASE', 'http://localhost/API/?option=');
+define('API_BASE', 'http://localhost/API_Curso/api/?option=');
 
 echo '<p>Aplicação</p>';
 
-for($i=0; $i<10; $i++)
+ for($i=0; $i<10; $i++)
 {
 
-    $resultado = api_request('random');
+    $resultado = api_request('hash');
 
     // verify if response is ok ( success)
     if($resultado['status'] == 'ERROR'){
-        die('Aconteceu um erro na na chamada da API!');
+        die('Aconteceu um erro na chamada da API!');
     
     }
 
 echo "O valor randomico: " . $resultado['data'] . "<br>";
 
 
-
-
-
 }
 
+echo '<pre>';
+print_r(api_request('status'));
 
 
-echo 'Terminado';
 
 
 function api_request($option)
